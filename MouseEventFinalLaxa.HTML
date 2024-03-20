@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        #div1 {
+            width: 500px;
+            height: 500px;
+            border: 4px solid black;
+            background-color: #ff9cd2;
+            position: relative;
+        }
+    </style> <!--Styling per instructions. -->
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        const div1 = document.getElementById("div1"); 
+        let NumberSequence = 1; // Number sequence will start @ 1 
+
+        div1.addEventListener("mousedown", function(event) { //mousedown function 
+          // Create a new div element
+          const div2 = document.createElement("div"); 
+          div2.style.width = "10px"; // As instructed by professor , 10 by 10 
+          div2.style.height = "10px";
+
+          // Generate a random background color in div
+           const colorGenerator = `#${Math.floor(Math.random() * 16777215).toString(16)}`; // Got code on : stack overflow  
+           div2.style.backgroundColor = colorGenerator ;
+
+            //Generate random background color outside of div 
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            let rgbValue = "#" + randomColor;
+            document.body.style.backgroundColor = rgbValue;
+
+          // Add sequence number as text content
+          div2.textContent = NumberSequence;
+
+          // Position the new div absolutely within div1
+          div2.style.position = "absolute"; // Div 2 will be the exact positioning as div1
+          div2.style.left = event.offsetX + "px"; // Line set the left sytle properties of div1 , this will set an effect after clicking happens. 
+          div2.style.top = event.offsetY + "px"; //vertical distance of div 2 to the top edge of div1 
+
+          // Add the new div to div1
+          div1.appendChild(div2); // Corresponding w/in each other. 
+
+          NumberSequence++; // if you click in the div box , you will see the numbers prompt w/ it own background color 
+        });
+    </script>
+</body>
+</body>
+</html>
+
+<!--2. Add second html page (page2.html). Add a 500px-by-500px div tag (div1). Give it border and
+background color.
+The goal is to use mouse events. When the user clicks (mouseup or mousedown) within div1
+a. a new created div of dimensions 10px by 10px is displayed within div1. This newly created div
+should have a random background color.
+b. And a number is displayed inside the new div. the number should indicate the sequence
+value. First created div is 1, second created div is 2, and son...-->

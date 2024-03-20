@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="randoStrings">
+    <button id="stringBtnsetter">The sayings</button>
+  
+
+    <script>
+    const randoStrings = document.getElementById("RnadomString");
+
+
+    const stringBtnsetter = document.getElementById("StringSetter");
+
+// the sayings array 
+    const Sayings = [
+  "Life is crazy, yet beautiful, yet busy, yet unknown, yet mysterious, yet everything.",
+  "Rap music and modern music isn't what it use to be, music dont even make sense now and days, the lyrics are not lyricing nor meaningful.",
+  "I did my final essay on ASMR. Why? I was just trying to undertand the scientific factors as to why so much people are compelled to this content .",
+  "Romans 8:18 - Basically means, all the struggles you are experiencing , will turn around eventually and things wil definitely get better. Lot of joy and happpiness."
+];
+//button sets 
+   stringBtnsetter.addEventListener("click", function() {
+    const randoIn = Math.floor(Math.random() * Sayings.length); // Generating and grabbing the array content to randomize
+    const chosenString = Sayings[randoIn]; //
+    randoStrings.value = chosenString; // should display
+
+});  
+    </script>
+</body>
+</html>
+
+<!--4. Add a fourth page (page4.html) .
+Add an input text tag and a button (Set string) to set a string in the input text.
+a. Define an array and initialize it with 4 long strings, at least 10 words each.
+b. Then at the click of the button initialize the input text with one of the strings, randomly.
+(Generate a random value) and use the generated value as an index to pull the string from
+the array and display it in the input tag-->

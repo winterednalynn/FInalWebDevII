@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laxa Dice Roll </title>
+</head>
+<body>
+    <center> <!--Centering Dice Images, images doesn't prompt until. button is pressed-->
+    <img id="dice1" src="" alt="One" width="150" height="150">
+    <img id="dice2" src="" alt="Two" width="150" height="150">
+    <p>Click on Image below to roll dice</p> <!--Instructing user to select img below to roll dices.-->
+    <button><img src="ThrowDice.jpg" alt="Throw Dice"></button> <!--Button Line, The button is an image that was given by professor. -->
+    </center>
+
+  <!--Javascript functions -->
+    <script>
+      const dice1 = document.getElementById("dice1"); //Declaring a variable of dice 1 which partakes in the img id of dice 1 this holds specific element to that particular img 
+      const dice2 = document.getElementById("dice2"); // Same structure for dice 2 
+      const button = document.querySelector("button");// assigning the img as a button variable. 
+  
+      button.addEventListener("click", function() // When the actions partakes for pressing the img
+      {
+        document.body.style.backgroundColor = "pink"; // For fun , when the img is selected, the background will turn pink . 
+
+        const num1 = Math.floor(Math.random() * 6) + 1; // Per instructions this generates a number 1-6 basically. 
+        const num2 = Math.floor(Math.random() * 6) + 1;
+  
+        dice1.src = `dice${num1}.svg`;  // The dice images will come to life 
+        dice2.src = `dice${num2}.svg`;  // The dice images will come to life 
+
+       
+      });
+    </script>
+  </body>
+  </html>
+<!--1. You are give 6 dice images all of type .svg, representing numbers: 1,2,3,4,5,6 and one .jpg image
+(ThrowDice.jpg) to show a couple of dice, may be used in a button to click on.
+Add 2 empty <img> tags to hold dice images, should be around150 by 150
+Add a button, put the jpg image ‘ThrowDice.jpg’ inside of the button.
+Using addEventListener for the button, attach code to the click of the button to simulate
+throwing of the dice. It means to generate two random values 1 to 6, then display the 2
+corresponding dice images in the img tags-->

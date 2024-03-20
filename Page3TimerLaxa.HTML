@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laxa</title>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!--THE BUTTONS-->
+    <button id="startBtn">Timer: START</button>
+    <button id="stopBtn">Timerk: STOP</button>
+    <button id="clearBtn">Clear</button>
+
+    <script>
+      const firstDiv = document.getElementById("div1");
+
+
+
+      
+
+      let SequenceOfNum = 1;
+      let IntermissionTime = null; // Variable to store the timer interval ID
+
+
+
+    function FreshDivFactorEL() {
+    const FreshDiv = document.createElement("div");
+    FreshDiv.style.width = "500px"; // Size of width 
+    FreshDiv.style.height = "500px"; // Sige of heith 
+    const ColorGenerator  = `#${Math.floor(Math.random() * 16777215).toString(16)}`; //Generated random color ; found code structure for random on StackOverflow 
+    FreshDiv.style.backgroundColor = ColorGenerator ;
+    FreshDiv.textContent = SequenceOfNum;
+    FreshDiv.style.position = "absolute"; // Just copied what i last placed in my code for mouse event onto here , since its similar objective. 
+    FreshDiv.style.left = Math.floor(Math.random() * 490) + "px"; // Random position within div1
+    firstDiv.appendChild(FreshDiv);
+    SequenceOfNum++;
+}
+
+//3 button object 
+
+//START BUTTON 
+const startBtn = document.getElementById("startBtn");
+startBtn.addEventListener("click", function() {
+  if (IntermissionTime === null) { // Check if timer is not already running
+    IntermissionTime = setInterval(FreshDivFactorEL, 2000); // Start timer with interval of 2 seconds
+  }
+});
+// STOP  BUTTON 
+const stopBtn = document.getElementById("stopBtn"); // Same structure as start button 
+stopBtn.addEventListener("click", function() {
+  if (IntermissionTime !== null) { // Check if timer is running
+    clearInterval(IntermissionTime);
+    IntermissionTime = null; // but placing null instead of set interval 
+  }
+});
+// CLEAR BUTTON 
+const clearBtn = document.getElementById("clearBtn");
+clearBtn.addEventListener("click", function() {
+  firstDiv.innerHTML=""; //
+  SequenceOfNum = 1; //
+});  
+    
+</script>
+    
+</body>
+</html>
+
+<!--3. Add a third page (page3.html). this question is similar to question 2. Add a 500px by 500px div
+tag (div1), instead of using the mouse event to create new div. Use a timer to create a new div
+(same way as in question 2) every 2 seconds.
+Should have 3 buttons,
+a. First one to start the timer (setInterval in the start button)
+b. second one to stop the timer (clearInterval in the stop button)
+c. third one to clear the div (hint: innerHTML)-->
